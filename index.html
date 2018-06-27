@@ -20,18 +20,11 @@
             width:100%;
         }
 
-        img#icon {
+        div#wrapper img {
             position:absolute;
             top: 45%;
             left: 50%;
             transform: translate(-50%, -50%);
-            opacity: 0;
-
-            -webkit-transition: opacity 0.5s ease-in;
-            -moz-transition: opacity 0.5s ease-in;
-            -o-transition: opacity 0.5s ease-in;
-            -ms-transition: opacity 0.5s ease-in;
-            transition: opacity 0.5s ease-in;
         }
 
         p#target {
@@ -44,6 +37,21 @@
             top: 45%;
             left: 50%;
             transform: translate(-50%, 65px);
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .js-fade {
+            opacity: 0;
+            animation: fadeIn .5s ease-in 1 forwards;
+        }
+
+        .is-paused {
+            animation-play-state: paused;
         }
     </style>
 
@@ -82,16 +90,15 @@
 </head>
 <body>
     <div id="wrapper">
-        <img id="icon" src="icon.png">
+        <img class="js-fade is-paused" src="icon.png">
         <p id="target"></p>
     </div>
 
     <script type="text/javascript">
-        var img = document.getElementById('icon');
-        img.style.opacity = 0; //For real browsers;
-        img.style.filter = "alpha(opacity=0)"; //For IE;
-        img.style.opacity = 1; //For real browsers;
-        img.style.filter = "alpha(opacity=100)"; //For IE;
+        var el = document.querySelector('.js-fade');
+        if (el.classList.contains('is-paused')){
+            el.classList.remove('is-paused');
+        }
 
         var defaultUrl = 'http://www.pixpin.at';
         if(path !== '') {
