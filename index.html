@@ -49,15 +49,12 @@
         var defaultUrl = 'http://www.pixpin.at not found...';
         if(path !== '') {
             var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                var target = defaultUrl;
+            xhttp.onreadystatechange = function() {
                 if (this.readyState == 4 && this.status == 200) {
                     var json = JSON.parse(xhttp.response);
-                    console.log(json);
-                    console.log(json.found);
-                    if (json.found) target = json.target;
+                    if (json.found) redirectToTarget(json.target);
+                    else redirectToTarget(defaultUrl);
                 }
-                redirectToTarget(target);
             };
             xhttp.open('GET', 'https://script.google.com/macros/s/AKfycbwcGIEEFvsXZtr0vGStEsh7gHH-dWsfEtsMQMHka2_1KFONjx0/exec?path=' + path, true);
             xhttp.send();
