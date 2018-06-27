@@ -34,6 +34,11 @@
             -ms-transition: opacity 0.5s ease-in;
             transition: opacity 0.5s ease-in;
         }
+
+        div p {
+            color: white;
+            display: block;
+        }
     </style>
 
     <script type="text/javascript">
@@ -76,9 +81,6 @@
     </div>
 
     <script type="text/javascript">
-        var el = document.getElementById('path');
-        el.textContent = path;
-
         var defaultUrl = 'http://www.pixpin.at';
         if(path !== '') {
             var xhttp = new XMLHttpRequest();
