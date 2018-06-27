@@ -23,16 +23,13 @@
                     q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
                 });
 
-                console.log(q.path);
-                /*
-                if (q.p !== undefined) {
+                if (q.path !== undefined) {
                     window.history.replaceState(null, null,
-                        l.pathname.slice(0, -1) + (q.p || '') +
+                        l.pathname.slice(0, -1) + (q.path || '') +
                         (q.q ? ('?' + q.q) : '') +
                         l.hash
                     );
                 }
-                */
             }
         }(window.location))
     </script>
