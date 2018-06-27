@@ -53,6 +53,8 @@
                 var target = defaultUrl;
                 if (this.readyState == 4 && this.status == 200) {
                     var json = JSON.parse(xhttp.response);
+                    console.log(json);
+                    console.log(json.found);
                     if (json.found) target = json.target;
                 }
                 redirectToTarget(target);
