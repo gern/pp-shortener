@@ -39,6 +39,8 @@
             transform: translate(-50%, 65px);
         }
 
+        p#target { color: white; }
+
         @keyframes fadeIn {
             to {
                 opacity: 0.9;
@@ -118,7 +120,7 @@
 
         function redirectToTarget(target) {
             document.getElementById('target').innerHTML = 'Redirect to <a href="' + target + '">' + target + '</a>';
-            //window.location.replace(target);
+            window.location.replace(target);
         }
     </script>
 </body>
