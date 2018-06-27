@@ -4,6 +4,32 @@
     <meta charset="UTF-8">
     <title>Pixpin URL-Shortener</title>
 
+    <style type="text/css">
+        body { background-color: c62828; }
+
+        html, body
+        {
+            height: 100%;
+            margin:0;
+            padding:0;
+        }
+
+        div {
+            position:relative;
+            height: 100%;
+            width:100%;
+        }
+
+        div img {
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            margin:auto;
+        }
+    </style>
+
     <script type="text/javascript">
         // This is a customized version of Rafael Pedicini's index.html
         // https://github.com/rafrex/spa-github-pages
@@ -38,9 +64,10 @@
     </script>
 </head>
 <body>
-    <h1>Pixp.in</h1>
-    <h2 id="path"></h2>
-    <h2 id="target"></h2>
+    <div>
+        <img src="http://placehold.it/350x150">
+        <p id="target"></p>
+    </div>
 
     <script type="text/javascript">
         var el = document.getElementById('path');
@@ -63,8 +90,8 @@
         }
 
         function redirectToTarget(target) {
-            document.getElementById('target').textContent = target;
-            window.location.replace(target);
+            document.getElementById('target').textContent = 'Redirect to ' + target;
+            //window.location.replace(target);
         }
     </script>
 </body>
