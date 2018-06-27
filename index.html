@@ -61,7 +61,9 @@
             };
             xhttp.open('GET', 'https://script.google.com/macros/s/AKfycbwcGIEEFvsXZtr0vGStEsh7gHH-dWsfEtsMQMHka2_1KFONjx0/exec?path=' + path, true);
             xhttp.send();
-        } else redirectToTarget(defaultUrl);
+        } else {
+            redirectToTarget(defaultUrl + '; path empty');
+        }
 
         function redirectToTarget(target) {
             document.getElementById('target').textContent = target;
