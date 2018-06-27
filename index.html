@@ -40,11 +40,21 @@
 <body>
     <h1>Pixp.in</h1>
     <h2 id="path"></h2>
+    <h2 id="target"></h2>
 
     <script type="text/javascript">
         var el = document.getElementById('path');
         el.textContent = path;
         console.log(path);
+
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(responseText);
+                document.getElementById('target').textContent = this.responseText;
+            }
+        };
+        xhttp.open('GET', 'https://script.google.com/macros/s/AKfycbwcGIEEFvsXZtr0vGStEsh7gHH-dWsfEtsMQMHka2_1KFONjx0/exec?path=x', true);
+        xhttp.send();
     </script>
 </body>
 </html>
