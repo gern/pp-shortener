@@ -46,7 +46,7 @@
         var el = document.getElementById('path');
         el.textContent = path;
 
-        var defaultUrl = 'http://www.pixpin.at not found...';
+        var defaultUrl = 'http://www.pixpin.at';
         if(path !== '') {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function() {
@@ -59,11 +59,12 @@
             xhttp.open('GET', 'https://script.google.com/macros/s/AKfycbwcGIEEFvsXZtr0vGStEsh7gHH-dWsfEtsMQMHka2_1KFONjx0/exec?path=' + path, true);
             xhttp.send();
         } else {
-            redirectToTarget(defaultUrl + '; path empty');
+            redirectToTarget(defaultUrl);
         }
 
         function redirectToTarget(target) {
             document.getElementById('target').textContent = target;
+            window.location.replace(target);
         }
     </script>
 </body>
