@@ -50,9 +50,12 @@
         if(path !== '') {
             var xhttp = new XMLHttpRequest();
             xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200 && xhttp.response.found == 'true') {
-                    redirectToTarget(xhttp.response.target);
-                } else redirectToTarget(defaultUrl);
+                var target = defaultUrl;
+                if (this.readyState == 4 && this.status == 200) {
+                    var json = JSON.parse(xhttp.response);
+                    if (json.found) target = json.target;
+                }
+                redirectToTarget(target);
             };
             xhttp.open('GET', 'https://script.google.com/macros/s/AKfycbwcGIEEFvsXZtr0vGStEsh7gHH-dWsfEtsMQMHka2_1KFONjx0/exec?path=' + path, true);
             xhttp.send();
