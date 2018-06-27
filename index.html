@@ -14,20 +14,22 @@
             padding:0;
         }
 
-        div {
+        div#wrapper {
             position:relative;
             height: 100%;
             width:100%;
         }
 
-        div img {
+        div#centered {
             position:absolute;
             top:0;
             left:0;
             right:0;
             bottom:0;
             margin:auto;
+        }
 
+        div img {
             -webkit-transition: opacity 0.5s ease-in;
             -moz-transition: opacity 0.5s ease-in;
             -o-transition: opacity 0.5s ease-in;
@@ -37,7 +39,6 @@
 
         div p {
             color: white;
-            display: block;
         }
     </style>
 
@@ -75,9 +76,11 @@
     </script>
 </head>
 <body>
-    <div>
-        <img src="icon.png">
-        <p id="target"></p>
+    <div id="wrapper">
+        <div id="centered">
+            <img src="icon.png">
+            <p id="target"></p>
+        </div>
     </div>
 
     <script type="text/javascript">
